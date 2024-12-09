@@ -1,6 +1,7 @@
 package org.test;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -18,5 +19,11 @@ public class HandleFrames {
 		
 		$(By.xpath("(//input[@type='text'])[2]")).sendKeys("Hello");
 		$(By.xpath("//input[@class='stbutton']")).click();
+		
+		switchTo().defaultContent();
+		
+		String text= $(By.xpath("//span[contains(.,'Sample website in an IFrame page')]")).getText();
+		System.out.println(text);
+		Assert.assertEquals(text, "Sample website in an IFrame page");
 	}
 }
