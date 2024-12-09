@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.test.HandleFrames">
+      <class name="org.test.AuthPopUpHandle">
         <methods>
-          <include name="fromTest"/>
+          <include name="authPopTest"/>
         </methods>
-      </class> <!-- org.test.HandleFrames -->
+      </class> <!-- org.test.AuthPopUpHandle -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
