@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-10T11:17:44 GMT+05:45" name="Default suite" finished-at="2024-12-10T11:17:51 GMT+05:45" duration-ms="7723">
+  <suite started-at="2024-12-10T11:42:56 GMT+05:45" name="Default suite" finished-at="2024-12-10T11:43:07 GMT+05:45" duration-ms="10494">
     <groups>
     </groups>
-    <test started-at="2024-12-10T11:17:44 GMT+05:45" name="Default test" finished-at="2024-12-10T11:17:51 GMT+05:45" duration-ms="7723">
-      <class name="org.test.FindElementsConcept">
-        <test-method signature="elementsTest()[pri:0, instance:org.test.FindElementsConcept@1d9b7cce]" started-at="2024-12-10T11:17:44 GMT+05:45" name="elementsTest" finished-at="2024-12-10T11:17:51 GMT+05:45" duration-ms="7665" status="PASS">
+    <test started-at="2024-12-10T11:42:56 GMT+05:45" name="Default test" finished-at="2024-12-10T11:43:07 GMT+05:45" duration-ms="10494">
+      <class name="org.test.FindElementsFromFooter">
+        <test-method signature="footerTest()[pri:0, instance:org.test.FindElementsFromFooter@1d9b7cce]" started-at="2024-12-10T11:42:56 GMT+05:45" name="footerTest" finished-at="2024-12-10T11:43:07 GMT+05:45" duration-ms="10448" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- elementsTest -->
-      </class> <!-- org.test.FindElementsConcept -->
+        </test-method> <!-- footerTest -->
+      </class> <!-- org.test.FindElementsFromFooter -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
