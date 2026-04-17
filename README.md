@@ -1,27 +1,57 @@
 # Selenide Automation Framework
 
-UI automation framework built with **Java + Selenide** for reliable, maintainable regression testing of web workflows.
+Production-style UI automation suite built with Java, Selenide, TestNG, and Maven.
 
-## Objective
+## What Was Improved
 
-- Create reusable test structure for critical user journeys
-- Improve execution consistency for smoke and regression suites
-- Keep test code easy to maintain and extend
+- Replaced brittle tests and `Thread.sleep(...)` calls with deterministic Selenide waits.
+- Standardized all tests to `*Test` naming so Maven discovers the complete suite.
+- Added a reusable base class for centralized browser/runtime configuration.
+- Switched tests to stable practice targets (`https://the-internet.herokuapp.com`) for lower flakiness.
+- Cleaned Maven dependencies and plugin config for predictable local/CI runs.
+- Added configurable runtime options via system properties and `selenide.properties`.
 
-## Tech Stack
+## Stack
 
-- Java
+- Java 17+
 - Selenide
+- TestNG
 - Maven
-- JUnit/TestNG (based on project setup)
 
-## Framework Structure
+## Project Structure
 
-- `src/test/java` - test cases and test classes
-- Reusable page/test components for maintainable automation
-- Maven project configuration via `pom.xml`
+- `src/test/java/org/test/config/BaseUiTest.java`: shared test configuration + cleanup
+- `src/test/java/org/test/*Test.java`: UI test classes
+- `src/test/resources/selenide.properties`: default runtime settings
+- `pom.xml`: dependencies and Maven build/test plugins
 
 ## Run Tests
 
+Run all tests:
+
 ```bash
 mvn clean test
+```
+
+Run a specific test class:
+
+```bash
+mvn -Dtest=HomePageSmokeTest test
+```
+
+Run with custom runtime options:
+
+```bash
+mvn -Dheadless=false -Dbrowser=edge -DtimeoutMs=15000 test
+```
+
+## Configuration Priority
+
+1. JVM system properties (`-Dbrowser=...`, `-Dheadless=...`)
+2. `BaseUiTest` defaults
+3. `src/test/resources/selenide.properties`
+
+## Notes
+
+- The suite closes the browser after each test method to keep tests isolated.
+- Test reports/screenshots are written under `build/reports/tests`.

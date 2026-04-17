@@ -1,49 +1,22 @@
 package org.test;
 
-import org.openqa.selenium.By;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+import org.test.config.BaseUiTest;
 import org.testng.annotations.Test;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
+public class SelectDropDownTest extends BaseUiTest {
 
-import static com.codeborne.selenide.Selenide.*;
+  @Test
+  public void dropdownSelectionShouldWork() {
+    open("/dropdown");
 
+    $("#dropdown").selectOption("Option 1");
+    $("#dropdown option:checked").shouldHave(text("Option 1"));
 
-public class SelectDropDownTest {
-	
-	@Test
-	public void userActions() throws InterruptedException {
-		
-		open("https://www.orangehrm.com/en/30-day-free-trial");
-		
-		// Using select tag html
-		
-		$(By.xpath("//select[@id='Form_getForm_Country']")).selectOption(2);
-		Thread.sleep(2000);
-		
-		$(By.xpath("//select[@id='Form_getForm_Country']")).selectOption("India");
-		Thread.sleep(2000);
-
-		$(By.xpath("//select[@id='Form_getForm_Country']")).selectOptionByValue("France");
-		Thread.sleep(2000);
-		
-		//Without using select path
-		
-		ElementsCollection coll=$$(By.cssSelector("select#Form_submitForm_submitForm_Country option"));
-		System.out.println(coll.size());
-		
-		for(SelenideElement e : coll) {
-			String text=e.getText();
-			System.out.println(text);
-			if(text.equals("Angola")) {
-				e.click();
-				break;
-				
-			}
-		}
-		Thread.sleep(2000);
-
-		
-	}
-
+    $("#dropdown").selectOptionByValue("2");
+    $("#dropdown option:checked").shouldHave(text("Option 2"));
+  }
 }
