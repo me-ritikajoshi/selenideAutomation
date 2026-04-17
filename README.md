@@ -2,15 +2,6 @@
 
 Production-style UI automation suite built with Java, Selenide, TestNG, and Maven.
 
-## What Was Improved
-
-- Replaced brittle tests and `Thread.sleep(...)` calls with deterministic Selenide waits.
-- Standardized all tests to `*Test` naming so Maven discovers the complete suite.
-- Added a reusable base class for centralized browser/runtime configuration.
-- Switched tests to stable practice targets (`https://the-internet.herokuapp.com`) for lower flakiness.
-- Cleaned Maven dependencies and plugin config for predictable local/CI runs.
-- Added configurable runtime options via system properties and `selenide.properties`.
-
 ## Stack
 
 - Java 17+
